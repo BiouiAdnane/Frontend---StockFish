@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="card col-md-8 offset-2 mt-4">
+    <div class="card-header">Nouveau dépot</div>
+    <div class="card-body">
+      <form [formGroup]="newDepotFormGroup" (ngSubmit)="handleSaveDepot()" method="post">
+
+        <div class="mb-3">
+          <label class="form-label">Nom dépot :</label>
+          <input type="text" formControlName="nom_Depot" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Quantité Max :</label>
+          <input type="text" formControlName="qauntiteMax" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Quantité Actuelle :</label>
+          <input type="text" formControlName="quantiteActuelle" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Nbr Max Allée :</label>
+          <input type="text" formControlName="nbrMaxAllee" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Nbr Max Rangée :</label>
+          <input type="text" formControlName="nbrMaxRangee" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Nbr Max Niveau :</label>
+          <input type="text" formControlName="nbrMaxNiveau" class="form-control">
+        </div>
+
+        <div class="d-grid col-md-6 offset-3">
+          <button class="btn btn-info ">Enregistrer</button></div>
+      </form>
+    </div>
+  </div>
+</div>

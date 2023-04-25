@@ -1,0 +1,86 @@
+<div class="container mt-2">
+  <ng-template #failureOrLoading >
+    <ng-container *ngIf="errMessage; else loading">
+      <div  class="text-danger">
+        {{errMessage}}
+      </div>
+    </ng-container>
+    <ng-template #loading >
+
+      <div id="load">
+        <div>G</div>
+        <div>N</div>
+        <div>I</div>
+        <div>D</div>
+        <div>A</div>
+        <div>O</div>
+        <div>L</div>
+      </div>
+
+
+
+    </ng-template>
+
+  </ng-template>
+  <ng-container *ngIf="personne | async as listPersonnes; else failureOrLoading">
+
+    <div class="card ">
+      <div *ngIf="errMessage">
+      {{errMessage}}
+    </div>
+      <div class="card-header bg-info"> Les personnelles :</div>
+      <div class="card-body">
+        <div *ngIf="searchFormGroup">
+          <form [formGroup]="searchFormGroup" (ngSubmit)="handelSearchPersonne()">
+            <div class="input-group">
+              <label class="input-group-text">Prenom :</label>
+              <input type="text" formControlName="keyword" class="form-control">
+              <button class="btn btn-success">
+                <div class="bi bi-search">Chercher</div>
+              </button>
+              <button routerLink="/new-user" class="btn btn-warning ms-5">
+                <div> Nouveau Utilisateur</div>
+              </button>
+            </div>
+          </form>
+        </div>
+        <table class="table">
+          <thead>
+          <tr>
+            <th >ID</th><th>Nom</th><th>Prenom</th> <th>Adresse</th><th>Email</th><th>Tel</th><th>Fonctionalité</th><th>Supp</th><th>Mod</th><th>Opr</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let p of personne |async">
+            <td>{{p.matriculation}}</td>
+            <td>{{p.nom}}</td>
+            <td>{{p.prenom}}</td>
+            <td>{{p.adresse}}</td>
+            <td>{{p.email}}</td>
+            <td>{{p.tel}}</td>
+            <td>{{p.typeEmploye}}</td>
+            <td >
+              <button class="btn btn-danger" (click)="handledDeletePersonne(p)">
+                <i class="bi bi-trash" ></i>
+              </button>
+            </td>
+            <td >
+              <button class="btn btn-primary" (click)="handelUpdatePersonne(p)">
+                <i class="bi-pen"></i>
+              </button>
+            </td>
+            <td >
+              <button class="btn btn-info">
+                Opérations
+              </button>
+            </td>
+          </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+
+  </ng-container>
+
+</div>

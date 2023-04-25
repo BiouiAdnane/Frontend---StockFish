@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="card col-md-8 offset-2 mt-4">
+    <div class="card-header">Modification d'un article</div>
+    <div class="card-body">
+      <form [formGroup]="updateArticleFormGroup" (ngSubmit)="handleUpdateArticle()" >
+
+        <div class="mb-3">
+          <label class="form-label">Designiation article :</label>
+          <input type="text" formControlName="designiation" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Ingredient :</label>
+          <select formControlName="ingredient" class="form-select">
+            <option *ngFor="let ingredient of ingredients" [value]="ingredient.id_Famille">{{ ingredient.nom }}</option>
+          </select>
+        </div>
+
+
+        <div class="mb-3">
+          <label class="form-label">Marque :</label>
+          <select formControlName="marque" class="form-select">
+            <option *ngFor="let marque of marques" [value]="marque.id_Famille">{{ marque.nom }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Nature :</label>
+          <select formControlName="nature" class="form-select">
+            <option *ngFor="let nature of natures" [value]="nature.id_Famille">{{ nature.nom }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Qualite :</label>
+          <select formControlName="qualite" class="form-select">
+            <option *ngFor="let qualite of qualites" [value]="qualite.id_Famille">{{ qualite.nom }}</option>
+          </select>
+        </div>
+
+
+        <div class="d-grid col-md-6 offset-3">
+          <button class="btn btn-info ">Enregistrer</button></div>
+      </form>
+    </div>
+  </div>
+</div>

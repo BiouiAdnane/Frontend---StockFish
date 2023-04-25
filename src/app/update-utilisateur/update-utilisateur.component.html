@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="card col-md-8 offset-2 mt-4">
+    <div class="card-header">Modification d'un utilisateur</div>
+    <div class="card-body">
+      <form *ngIf="form" [formGroup]="updatePersonneFormGroup" (ngSubmit)="handleUpdatePersonne()" >
+
+        <div class="mb-3">
+          <label class="form-label">Nom :</label>
+          <input type="text" formControlName="nom" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Prénom :</label>
+          <input type="text" formControlName="prenom" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email :</label>
+          <input type="email" formControlName="email" class="form-control">
+
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Adresse :</label>
+          <input type="text" formControlName="adresse" class="form-control">
+        </div>
+      <div class="mb-3">
+          <label class="form-label">Type Employé :</label>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input ms-3" value="Administrateur" [(ngModel)]="selectedType" type="radio" formControlName="typeEmploye">
+            <label class="form-check-label ms-1">Administrateur</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input ms-3" value="Gestionaire_Emballage" [(ngModel)]="selectedType" type="radio" formControlName="typeEmploye">
+            <label class="form-check-label ms-1">Gestionnaire d'emballage</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input ms-3" value="Gestionaire_ProduitFini" [(ngModel)]="selectedType" type="radio" formControlName="typeEmploye">
+            <label class="form-check-label ms-1">Gestionnaire produit fini</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Numéro de Tel :</label>
+          <input type="tel" formControlName="tel" class="form-control">
+        </div>
+        <div class="d-grid col-md-6 offset-3">
+          <button class="btn btn-info ">Enregistrer</button></div>
+      </form>
+    </div>
+  </div>
+</div>

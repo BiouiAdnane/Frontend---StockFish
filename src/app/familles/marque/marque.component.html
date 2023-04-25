@@ -1,0 +1,90 @@
+<div class="container mt-2">
+  <div class="row">
+    <div class="col col-md-6 ">
+
+      <ng-template #failureOrLoading>
+        <ng-container *ngIf="errMessage; else loading">
+          <div class="text-danger">
+            {{errMessage}}
+          </div>
+        </ng-container>
+        <ng-template #loading>
+          <div class="text-center " id="loading">
+            <div class="spinner-border text-primary" style="width: 6rem; height: 6rem;" role="status">
+            </div>
+          </div>
+        </ng-template>
+
+      </ng-template>
+      <ng-container *ngIf="marque | async as listMarques; else failureOrLoading">
+        <div class="card ">
+          <div *ngIf="errMessage">
+            {{errMessage}}
+          </div>
+          <div class="card-header bg-info"> Les marques :</div>
+          <div class="card-body">
+            <div *ngIf="searchMarqueFormGroup">
+              <form [formGroup]="searchMarqueFormGroup" (ngSubmit)="handelSearchMarque()">
+                <div class="input-group">
+                  <label class="input-group-text">Nom marque:</label>
+                  <input type="text" formControlName="keyword" class="form-control">
+                  <button class="btn btn-success">
+                    <div class="bi bi-search">Chercher</div>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Code Famille</th>
+                <th>Nom Famille</th>
+                <th>Supp</th>
+                <th>Mod</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let m of marque |async ">
+                <td>{{m.id_Famille}}</td>
+                <td>{{m.nom}}</td>
+
+                <td>
+                  <button class="btn btn-danger" (click)="handledDeleteMarque(m)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+                <td>
+                  <button class="btn btn-primary" (click)="handelUpdateMarque(m)">
+                    <i class="bi-pen"></i>
+                  </button>
+                </td>
+
+              </tr>
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+
+    <div class="col col-md-6 ">
+      <div class="card">
+        <div class="card-header bg-info">Nouvelle marque :</div>
+        <div class="card-body">
+          <form [formGroup]="newMarqueFormGroup" (ngSubmit)="handleAddMarque()" method="post">
+            <div class="mb-3">
+              <label class="form-label">Nom de la nouvelle marque :</label>
+              <input type="text" formControlName="nom" class="form-control">
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-success">Enregistrer</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

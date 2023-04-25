@@ -1,0 +1,73 @@
+<div class="container mt-2">
+  <ng-template #failureOrLoading >
+    <ng-container *ngIf="errMessage; else loading">
+      <div  class="text-danger">
+        {{errMessage}}
+      </div>
+    </ng-container>
+    <ng-template #loading >
+      <div class="text-center " id="loading">
+        <div class="spinner-border text-primary" style="width: 6rem; height: 6rem;" role="status">
+        </div></div>
+    </ng-template>
+
+  </ng-template>
+  <ng-container *ngIf="depot | async as listDepots; else failureOrLoading">
+<div class="card ">
+  <div *ngIf="errMessage">
+    {{errMessage}}
+  </div>
+  <div class="card-header bg-info"> Les dépots :</div>
+  <div class="card-body">
+    <div *ngIf="searchDepotFormGroup">
+      <form [formGroup]="searchDepotFormGroup" (ngSubmit)="handelSearchDepot()">
+        <div class="input-group">
+          <label class="input-group-text">Nom dépot:</label>
+          <input type="text" formControlName="keyword" class="form-control">
+          <button class="btn btn-success">
+            <div class="bi bi-search">Chercher</div>
+          </button>
+          <button routerLink="/new-depot" class="btn btn-warning ms-5">
+            <div> Nouveau Dépot</div>
+          </button>
+        </div>
+      </form>
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th >ID</th><th>Nom</th><th>Qté Max</th> <th>Qté Actuelle</th><th>Nbr Max Allée</th><th>Nbr Max Rangée</th><th>Nbr Max Niveau</th><th>Supp</th><th>Mod</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let d of depot |async ">
+        <td>{{d.code_Depot}}</td>
+        <td>{{d.nom_Depot}}</td>
+        <td>{{d.qauntiteMax}}</td>
+        <td>{{d.quantiteActuelle}}</td>
+        <td>{{d.nbrMaxAllee}}</td>
+        <td>{{d.nbrMaxRangee}}</td>
+        <td>{{d.nbrMaxNiveau}}</td>
+        <td >
+          <button class="btn btn-danger" (click)="handledDeleteDepot(d)">
+            <i class="bi bi-trash" ></i>
+          </button>
+        </td>
+        <td >
+          <button class="btn btn-primary" (click)="handelUpdateDepot(d)">
+            <i class="bi-pen"></i>
+          </button>
+        </td>
+        <td >
+          <button class="btn btn-info">
+            Opérations
+          </button>
+        </td>
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
+  </ng-container>
+</div>
