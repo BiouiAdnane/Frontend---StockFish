@@ -1,0 +1,62 @@
+<div class="container">
+  {{updateOperationFormGroup.value|json}}
+  <div class="card col-md-8 offset-2 mt-4">
+    <div class="card-header">Modification d'une opération</div>
+    <div class="card-body">
+      <form [formGroup]="updateOperationFormGroup" (ngSubmit)="handleUpdateOperation()" >
+
+
+        <div class="mb-3">
+          <label class="form-label">Type opération :</label>
+          <input type="text" formControlName="typeOpr" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Code Article :</label>
+          <input type="text" formControlName="codeArticle" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Code Depot :</label>
+          <input type="text" formControlName="CodeDepot" class="form-control">
+        </div>
+
+
+        <div class="mb-3">
+          <label class="form-label">Quantité :</label>
+          <input type="text" formControlName="quantite" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Numéro de Lot :</label>
+          <input type="text" formControlName="nLot" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Allé :</label>
+          <input type="text" formControlName="allee" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Rangée :</label>
+          <input type="text" formControlName="rangee" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Niveau :</label>
+          <input type="text" formControlName="niveau" class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Date de l'opération:</label>
+          <input type="text" formControlName="dateOpertaion" class="form-control">
+        </div>
+
+
+
+        <div class="d-grid col-md-6 offset-3">
+          <button class="btn btn-info ">Enregistrer</button></div>
+      </form>
+    </div>
+  </div>
+</div>

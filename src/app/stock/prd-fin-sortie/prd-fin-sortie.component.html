@@ -1,0 +1,63 @@
+<div class="container mt-2">
+  <ng-template #failureOrLoading >
+    <ng-container *ngIf="errMessage; else loading">
+      <div  class="text-danger">
+        {{errMessage}}
+      </div>
+    </ng-container>
+    <ng-template #loading >
+      <div class="text-center " id="loading">
+        <div class="spinner-border text-primary" style="width: 6rem; height: 6rem;" role="status">
+        </div></div>
+    </ng-template>
+
+  </ng-template>
+  <ng-container *ngIf="operation | async as listUserOperations; else failureOrLoading">
+    <div class="card ">
+      <div *ngIf="errMessage">
+        {{errMessage}}
+      </div>
+      <div class="card-header bg-info"> Les operations sortie du stock produit fini:</div>
+      <div class="card-body">
+        <div *ngIf="ProdFinSortieFormGroup">
+          <form [formGroup]="ProdFinSortieFormGroup" (ngSubmit)="handelGetOperationsPfSort()">
+
+          </form>
+        </div>
+        <table class="table">
+          <thead>
+          <tr>
+            <th >Id Operation</th><th>Type</th> <th>N° Lot</th><th>Quantité</th><th>Date d'opération</th><th>Allée</th><th>Rangée</th><th>Niveau</th><th>Supp</th><th>Mod</th>
+            <th> <button class="btn btn-warning"> <i class="bi bi-plus"></i></button></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let o of operation |async ">
+            <td>{{o.idOperation}}</td>
+            <td>{{o.typeOpr}}</td>
+            <td>{{o.nLot}}</td>
+            <td>{{o.quantite}}</td>
+            <td>{{o.dateOpertaion | date:'yyyy/mm/dd --- hh:mm'}}</td>
+            <td>{{o.allee}}</td>
+            <td>{{o.rangee}}</td>
+            <td>{{o.niveau}}</td>
+
+
+            <td >
+              <button class="btn btn-danger" (click)="handledDeleteOperation(o)">
+                <i class="bi bi-trash" ></i>
+              </button>
+            </td>
+            <td >
+              <button class="btn btn-primary" (click)="handelUpdateOperation(o)">
+                <i class="bi-pen"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </ng-container>
+</div>

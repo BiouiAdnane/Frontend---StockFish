@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FamilleComponent } from './famille.component';
+import { PrdFinEntreComponent } from './prd-fin-entre.component';
 
-describe('FamilleComponent', () => {
-  let component: FamilleComponent;
-  let fixture: ComponentFixture<FamilleComponent>;
+describe('PrdFinEntreComponent', () => {
+  let component: PrdFinEntreComponent;
+  let fixture: ComponentFixture<PrdFinEntreComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FamilleComponent ]
+      declarations: [ PrdFinEntreComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FamilleComponent);
+    fixture = TestBed.createComponent(PrdFinEntreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

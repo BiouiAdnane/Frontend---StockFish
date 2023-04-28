@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
-import { FamilleComponent } from './famille/famille.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { NewUtilisateurComponent } from './new-utilisateur/new-utilisateur.component';
@@ -26,6 +25,12 @@ import { UpdateQualiteComponent } from './familles/update-qualite/update-qualite
 import { ArticleComponent } from './article/article.component';
 import { NewArticleComponent } from './new-article/new-article.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
+import { UserOperationsComponent } from './user-operations/user-operations.component';
+import { UpdateOperationComponent } from './update-operation/update-operation.component';
+import { EmballageEntreComponent } from './stock/emballage-entre/emballage-entre.component';
+import { EmballageSortieComponent } from './stock/emballage-sortie/emballage-sortie.component';
+import { PrdFinEntreComponent } from './stock/prd-fin-entre/prd-fin-entre.component';
+import { PrdFinSortieComponent } from './stock/prd-fin-sortie/prd-fin-sortie.component';
 
 
 @NgModule({
@@ -34,7 +39,6 @@ import { UpdateArticleComponent } from './update-article/update-article.componen
     AdminDashboardComponent,
     NavBarComponent,
     UtilisateurComponent,
-    FamilleComponent,
     NewUtilisateurComponent,
     DepotComponent,
     UpdateUtilisateurComponent,
@@ -52,6 +56,12 @@ import { UpdateArticleComponent } from './update-article/update-article.componen
     ArticleComponent,
     NewArticleComponent,
     UpdateArticleComponent,
+    UserOperationsComponent,
+    UpdateOperationComponent,
+    EmballageEntreComponent,
+    EmballageSortieComponent,
+    PrdFinEntreComponent,
+    PrdFinSortieComponent,
 
 
   ],

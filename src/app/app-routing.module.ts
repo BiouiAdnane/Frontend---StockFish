@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.component";
 import {UtilisateurComponent} from "./utilisateur/utilisateur.component";
-import {FamilleComponent} from "./famille/famille.component";
 import {NewUtilisateurComponent} from "./new-utilisateur/new-utilisateur.component";
 import {DepotComponent} from "./depot/depot.component";
 import {UpdateUtilisateurComponent} from "./update-utilisateur/update-utilisateur.component";
@@ -20,15 +19,22 @@ import {UpdateQualiteComponent} from "./familles/update-qualite/update-qualite.c
 import {ArticleComponent} from "./article/article.component";
 import {NewArticleComponent} from "./new-article/new-article.component";
 import {UpdateArticleComponent} from "./update-article/update-article.component";
+import {UserOperationsComponent} from "./user-operations/user-operations.component";
+import {UpdateOperationComponent} from "./update-operation/update-operation.component";
+import {EmballageEntreComponent} from "./stock/emballage-entre/emballage-entre.component";
+import {EmballageSortieComponent} from "./stock/emballage-sortie/emballage-sortie.component";
+import {PrdFinEntreComponent} from "./stock/prd-fin-entre/prd-fin-entre.component";
+import {PrdFinSortieComponent} from "./stock/prd-fin-sortie/prd-fin-sortie.component";
 
 const routes: Routes = [
-  {path:"", component: LoginComponent },
+  {path:"n", component: LoginComponent },
   {path:"login", component: LoginComponent },
   {path:"dashboard", component: AdminDashboardComponent},
 
   {path:"users", component: UtilisateurComponent},
   {path:"new-user", component: NewUtilisateurComponent},
   {path:"updateUser/:matriculation", component: UpdateUtilisateurComponent},
+  {path:"userOperations/:matriculation", component: UserOperationsComponent},
 
   {path:"depot", component: DepotComponent},
   {path:"new-depot", component: NewDepotComponent},
@@ -49,6 +55,12 @@ const routes: Routes = [
 
   {path:"qualite", component: QualiteComponent},
   {path:"update-qualite/:id_Famille", component: UpdateQualiteComponent},
+
+  {path:"updateOperation/:idOperation", component: UpdateOperationComponent},
+  {path:"OpEmbEntr", component: EmballageEntreComponent},
+  {path:"OpEmbSort", component: EmballageSortieComponent},
+  {path:"OpPfEntr", component: PrdFinEntreComponent},
+  {path:"OpPfSort", component: PrdFinSortieComponent},
 
 ];
 

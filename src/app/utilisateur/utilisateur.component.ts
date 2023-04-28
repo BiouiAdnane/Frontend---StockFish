@@ -61,4 +61,8 @@ export class UtilisateurComponent implements OnInit{
     this.router.navigateByUrl("/updateUser/"+p.matriculation)
 
   }
+
+  handelPersonneOperations(p: Utilisateur) {
+    this.router.navigateByUrl("/userOperations/"+p.matriculation)
+  }
 }

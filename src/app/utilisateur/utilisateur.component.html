@@ -47,7 +47,7 @@
         <table class="table">
           <thead>
           <tr>
-            <th >ID</th><th>Nom</th><th>Prenom</th> <th>Adresse</th><th>Email</th><th>Tel</th><th>Fonctionalité</th><th>Supp</th><th>Mod</th><th>Opr</th>
+            <th >ID</th><th>Nom</th><th>Prenom</th> <th>Adresse</th><th>Email</th><th>Tel</th><th>Fonctionalité</th><th>Supp</th><th>Mod</th><th>Opérations</th>
           </tr>
           </thead>
           <tbody>
@@ -70,8 +70,8 @@
               </button>
             </td>
             <td >
-              <button class="btn btn-info">
-                Opérations
+              <button class="btn btn-dark " (click)="handelPersonneOperations(p)">
+                <i class="bi bi-clipboard-check-fill"></i>
               </button>
             </td>
           </tr>
