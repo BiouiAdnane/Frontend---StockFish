@@ -28,7 +28,7 @@ export class UpdateOperationComponent implements OnInit{
       idOperation:new FormControl(),
       typeOpr:new FormControl(),
       quantite:new FormControl(),
-      nLot:new FormControl(),
+      n_Lot:new FormControl(),
       allee:new FormControl(),
       rangee:new FormControl(),
       niveau:new FormControl(),
@@ -53,7 +53,7 @@ export class UpdateOperationComponent implements OnInit{
           code_Depot:this.fb.control(this.operation.code_Depot),
           matriculation:this.fb.control(this.operation.matriculation),
           quantite:this.fb.control(this.operation.quantite),
-          nLot:this.fb.control(this.operation.nLot),
+          n_Lot:this.fb.control(this.operation.n_Lot),
           allee:this.fb.control(this.operation.allee),
           rangee: this.fb.control(this.operation.rangee),
           niveau: this.fb.control(this.operation.niveau),
@@ -72,7 +72,7 @@ export class UpdateOperationComponent implements OnInit{
   handleUpdateOperation() {
     let o= this.updateOperationFormGroup.value;
     o.idOperation=this.operation.idOperation;
-    this.operationService.saveOperation(o).subscribe({
+    this.operationService.updateOperation(o).subscribe({
       next : (data)=>{
         alert("La modification est faite avec succée");
         this.router.navigateByUrl("/userOperations")
