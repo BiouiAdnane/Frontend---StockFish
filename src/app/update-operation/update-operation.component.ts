@@ -57,7 +57,7 @@ export class UpdateOperationComponent implements OnInit{
           allee:this.fb.control(this.operation.allee),
           rangee: this.fb.control(this.operation.rangee),
           niveau: this.fb.control(this.operation.niveau),
-          dateOpertaion: this.fb.control(this.operation.dateOpertaion),
+          dateOpertaion: this.fb.control(this.operation.dateOpertaion ),
 
 
 
