@@ -58,6 +58,7 @@ export class UpdateUtilisateurComponent implements OnInit{
         next : (data)=>{
           alert("La modification est faite avec succée");
           this.updatePersonneFormGroup.reset();
+          this.router.navigateByUrl("/users")
         },
       error:err => {
         console.log(err);

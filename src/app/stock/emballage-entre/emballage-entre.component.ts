@@ -5,6 +5,7 @@ import {Operation} from "../../model/operation";
 import {UserOperationsService} from "../../services/user-operations.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {OperationsService} from "../../services/operations.service";
+import {RedirectService} from "../../services/redirect.service";
 
 @Component({
   selector: 'app-emballage-entre',
@@ -23,7 +24,7 @@ export class EmballageEntreComponent implements OnInit{
 
 
   constructor(private operationService :OperationsService, private fb : FormBuilder,
-              private route:ActivatedRoute,private router:Router) {
+              private route:ActivatedRoute,private router:Router,private redirectService: RedirectService) {
   }
 
   handelGetOperationsEmbaEntr(){
@@ -56,6 +57,7 @@ export class EmballageEntreComponent implements OnInit{
   }
 
   handelUpdateOperation(o: Operation) {
-    this.router.navigateByUrl("/updateOperation/"+o.idOperation)
+    this.router.navigateByUrl("/updateOperation/"+o.idOperation);
+    this.redirectService.setRedirectTo('/OpEmbEntr');
   }
 }

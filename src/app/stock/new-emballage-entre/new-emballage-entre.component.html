@@ -1,23 +1,22 @@
 <div class="container">
   <div class="card col-md-8 offset-2 mt-4">
-    <div class="card-header">Modification d'une opération</div>
+    <div class="card-header">Nouvelle opération</div>
     <div class="card-body">
-      <form [formGroup]="updateOperationFormGroup" (ngSubmit)="handleUpdateOperation()" >
-
+      <form [formGroup]="newOperationEmbFormGroup" (ngSubmit)="isCustomLot! ? handleNlotPersonaliser() : handleNlotpardefeaut()" >
+        <div class="mb-3">
+          <label class="form-label">Numéro de Lot :</label>
+          <button id="myButton" class="on" (click)="toggleButton()">N° Lot d'aujourd'hui</button>
+          <input *ngIf="isCustomLot" type="text" formControlName="n_Lot" class="form-control">
+        </div>
 
         <div class="mb-3">
-          <label class="form-label">Type opération :</label>
-          <input type="text" formControlName="typeOpr" class="form-control">
+          <label class="form-label" >Matriculation :</label>
+          <input type="text" formControlName="matriculation" class="form-control" >
         </div>
 
         <div class="mb-3">
           <label class="form-label">Code Article :</label>
           <input type="text" formControlName="code_Article" class="form-control">
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">Code Depot :</label>
-          <input type="text" formControlName="code_Depot" class="form-control">
         </div>
 
 
@@ -26,10 +25,7 @@
           <input type="text" formControlName="quantite" class="form-control">
         </div>
 
-        <div class="mb-3">
-          <label class="form-label">Numéro de Lot :</label>
-          <input type="text" formControlName="n_Lot" class="form-control">
-        </div>
+
 
         <div class="mb-3">
           <label class="form-label">Allé :</label>
@@ -45,13 +41,6 @@
           <label class="form-label">Niveau :</label>
           <input type="text" formControlName="niveau" class="form-control">
         </div>
-
-        <div class="mb-3">
-          <label class="form-label">Date de l'opération:</label>
-          <input type="text" formControlName="dateOpertaion" class="form-control">
-        </div>
-
-
 
         <div class="d-grid col-md-6 offset-3">
           <button class="btn btn-info ">Enregistrer</button></div>

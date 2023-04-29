@@ -7,6 +7,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Operation} from "../model/operation";
 import {UserOperationsService} from "../services/user-operations.service";
 import {Utilisateur} from "../model/Utilisateur.model";
+import {RedirectService} from "../services/redirect.service";
 
 @Component({
   selector: 'app-user-operations',
@@ -26,7 +27,7 @@ export class UserOperationsComponent implements OnInit{
 
 
   constructor(private userOperationService :UserOperationsService, private fb : FormBuilder,
-              private route:ActivatedRoute,private router:Router) {
+              private route:ActivatedRoute,private router:Router,private redirectService: RedirectService) {
   }
 
   handelGetUserOperations(){
@@ -60,7 +61,8 @@ export class UserOperationsComponent implements OnInit{
   }
 
   handelUpdateOperation(o: Operation) {
-    this.router.navigateByUrl("/updateOperation/"+o.idOperation)
+    this.router.navigateByUrl("/updateOperation/"+o.idOperation);
+    this.redirectService.setRedirectTo('/users');
   }
 }
 
