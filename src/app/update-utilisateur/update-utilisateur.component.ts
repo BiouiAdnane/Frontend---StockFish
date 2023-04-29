@@ -54,7 +54,7 @@ export class UpdateUtilisateurComponent implements OnInit{
   handleUpdatePersonne() {
     let p= this.updatePersonneFormGroup.value;
     p.matriculation=this.personne.matriculation;
-    this.utilisateurService.savePersonne(p).subscribe({
+    this.utilisateurService.updatePersonne(p).subscribe({
         next : (data)=>{
           alert("La modification est faite avec succée");
           this.updatePersonneFormGroup.reset();

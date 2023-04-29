@@ -28,7 +28,7 @@ export class UpdateOperationComponent implements OnInit{
       idOperation:new FormControl(),
       typeOpr:new FormControl(),
       quantite:new FormControl(),
-      nLot:new FormControl(),
+      n_Lot:new FormControl(),
       allee:new FormControl(),
       rangee:new FormControl(),
       niveau:new FormControl(),
@@ -53,11 +53,15 @@ export class UpdateOperationComponent implements OnInit{
           code_Depot:this.fb.control(this.operation.code_Depot),
           matriculation:this.fb.control(this.operation.matriculation),
           quantite:this.fb.control(this.operation.quantite),
-          nLot:this.fb.control(this.operation.n_Lot),
+
+          n_Lot:this.fb.control(this.operation.n_Lot),
+
+          
+
           allee:this.fb.control(this.operation.allee),
           rangee: this.fb.control(this.operation.rangee),
           niveau: this.fb.control(this.operation.niveau),
-          dateOpertaion: this.fb.control(this.operation.dateOpertaion),
+          dateOpertaion: this.fb.control(this.operation.dateOpertaion ),
 
 
 
