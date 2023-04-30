@@ -27,6 +27,8 @@ import {PrdFinEntreComponent} from "./stock/prd-fin-entre/prd-fin-entre.componen
 import {PrdFinSortieComponent} from "./stock/prd-fin-sortie/prd-fin-sortie.component";
 import {NewEmballageEntreComponent} from "./stock/new-emballage-entre/new-emballage-entre.component";
 import {NewProdFiniEntreComponent} from "./stock/new-prod-fini-entre/new-prod-fini-entre.component";
+import {ArticleEmbDispoComponent} from "./stock/article-emb-dispo/article-emb-dispo.component";
+import {ArticlePrfDispoComponent} from "./stock/article-prf-dispo/article-prf-dispo.component";
 
 const routes: Routes = [
   {path:"n", component: LoginComponent },
@@ -61,10 +63,15 @@ const routes: Routes = [
   {path:"updateOperation/:idOperation", component: UpdateOperationComponent},
   {path:"OpEmbEntr", component: EmballageEntreComponent},
   {path:"NewOpEmbEntr", component: NewEmballageEntreComponent},
+
   {path:"OpEmbSort", component: EmballageSortieComponent},
   {path:"NewPrdFiniEntr", component: NewProdFiniEntreComponent},
+
   {path:"OpPfEntr", component: PrdFinEntreComponent},
   {path:"OpPfSort", component: PrdFinSortieComponent},
+
+  {path:"ArtEmbDispo", component: ArticleEmbDispoComponent},
+  {path:"ArtPrfDispo", component: ArticlePrfDispoComponent},
 
 ];
 

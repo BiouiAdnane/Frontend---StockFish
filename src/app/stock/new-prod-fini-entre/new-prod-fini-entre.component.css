@@ -14,3 +14,9 @@
   background-color: cornflowerblue;
   color: white;
 }
+.form-control:focus::placeholder {
+  color: #007bff;
+}
+.form-control:valid::placeholder {
+  color: #66afe9;
+}
