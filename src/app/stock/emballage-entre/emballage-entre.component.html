@@ -27,7 +27,7 @@
         <table class="table">
           <thead>
           <tr>
-            <th >Id Operation</th><th>Type</th> <th>N° Lot</th><th>Quantité</th><th>Date d'opération</th><th>Allée</th><th>Rangée</th><th>Niveau</th><th>Supp</th><th>Mod</th>
+            <th >Id Operation</th><th>Type</th><th>Code Article</th><th>Designiation</th> <th>N° Lot</th><th>Quantité</th><th>Date d'opération</th><th>Allée</th><th>Rangée</th><th>Niveau</th><th>Supp</th><th>Mod</th>
             <th> <button class="btn btn-warning" routerLink="/NewOpEmbEntr"> <i class="bi bi-plus"></i></button></th>
           </tr>
           </thead>
@@ -35,6 +35,8 @@
           <tr *ngFor="let o of operation |async ">
             <td>{{o.idOperation}}</td>
             <td>{{o.typeOpr}}</td>
+            <td>{{o.code_Article}}</td>
+            <td>{{o.designation}}</td>
             <td>{{o.n_Lot}}</td>
             <td>{{o.quantite}}</td>
             <td>{{o.dateOpertaion | date:'yyyy/MM/dd --- hh:mm'}}</td>

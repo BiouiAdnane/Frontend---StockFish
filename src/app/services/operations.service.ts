@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Operation} from "../model/operation";
+import {DispoArticle} from "../model/DispoArticle";
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +41,14 @@ export class OperationsService {
 
   public updateOperation(operation : Operation){
     return this.http.put(this.backendHost + "/operations/" +operation.idOperation, operation)
+  }
+
+  public getArticleDipoEmba(): Observable<Array<Object>> {
+    return this.http.get<Array<Object>>(this.backendHost+"/operations/depots/articles/emb");
+  }
+
+
+  public getArticleDipoPrdFini():Observable<Array<DispoArticle>>{
+    return this.http.get<Array<DispoArticle>>(this.backendHost+"/operations/depots/articles/prf")
   }
 }

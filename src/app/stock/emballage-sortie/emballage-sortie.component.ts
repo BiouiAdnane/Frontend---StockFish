@@ -20,23 +20,17 @@ export class EmballageSortieComponent implements OnInit{
   ngOnInit(): void {
     this.handelGetOperationsEmbaSort()
   }
-
-
   constructor(private operationService :OperationsService, private fb : FormBuilder,
               private route:ActivatedRoute,private router:Router,private redirectService: RedirectService) {
   }
-
   handelGetOperationsEmbaSort(){
     this.operation=this.operationService.getOperationsEmbSort().pipe(
       catchError(err=>{
         this.errMessage=err.message;
         return throwError(err);
-
       })
     )
   }
-
-
   handledDeleteOperation(o: Operation) {
     let conf=confirm("Voulez vous supprimer cette operation ?")
     if (!conf) return;

@@ -33,6 +33,8 @@ import { PrdFinEntreComponent } from './stock/prd-fin-entre/prd-fin-entre.compon
 import { PrdFinSortieComponent } from './stock/prd-fin-sortie/prd-fin-sortie.component';
 import { NewEmballageEntreComponent } from './stock/new-emballage-entre/new-emballage-entre.component';
 import { NewProdFiniEntreComponent } from './stock/new-prod-fini-entre/new-prod-fini-entre.component';
+import { ArticleEmbDispoComponent } from './stock/article-emb-dispo/article-emb-dispo.component';
+import { ArticlePrfDispoComponent } from './stock/article-prf-dispo/article-prf-dispo.component';
 
 
 @NgModule({
@@ -66,6 +68,8 @@ import { NewProdFiniEntreComponent } from './stock/new-prod-fini-entre/new-prod-
     PrdFinSortieComponent,
     NewEmballageEntreComponent,
     NewProdFiniEntreComponent,
+    ArticleEmbDispoComponent,
+    ArticlePrfDispoComponent,
 
 
   ],
