@@ -7,6 +7,7 @@ import {ArticleService} from "../services/article.service";
 import {FamilleService} from "../services/famille.service";
 import {Operation, TypeOp} from "../model/operation";
 import {UserOperationsService} from "../services/user-operations.service";
+import {RedirectService} from "../services/redirect.service";
 
 @Component({
   selector: 'app-update-operation',
@@ -18,11 +19,12 @@ export class UpdateOperationComponent implements OnInit{
   idOperation!:number;
   operation!:Operation;
   updateOperationFormGroup!: FormGroup;
+  rederictTo!:String;
   form: FormGroup = this.fb.group({})
 
 
   constructor(private route:ActivatedRoute,private router:Router, public operationService : UserOperationsService,
-              private fb : FormBuilder) {
+              private fb : FormBuilder,private redirectService: RedirectService) {
     this.operation=this.router.getCurrentNavigation()?.extras.state as Operation;
     this.updateOperationFormGroup=new FormGroup({
       idOperation:new FormControl(),
@@ -70,17 +72,18 @@ export class UpdateOperationComponent implements OnInit{
   }
 
   handleUpdateOperation() {
-    let o= this.updateOperationFormGroup.value;
-    o.idOperation=this.operation.idOperation;
+    let o = this.updateOperationFormGroup.value;
+    o.idOperation = this.operation.idOperation;
     this.operationService.updateOperation(o).subscribe({
-      next : (data)=>{
-        alert("La modification est faite avec succée");
-        this.router.navigateByUrl("/userOperations")
+      next: (data) => {
+        alert("La modification est faite avec succès");
+        const redirectTo = this.redirectService.getRedirectTo();
+        this.router.navigateByUrl(redirectTo);
       },
-      error:err => {
+      error: (err) => {
         console.log(err);
-      }
-    })
+      },
+    });
   }
 }
 

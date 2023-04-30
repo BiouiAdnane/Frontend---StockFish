@@ -4,6 +4,7 @@ import {catchError, map, Observable, throwError} from "rxjs";
 import {Operation} from "../../model/operation";
 import {OperationsService} from "../../services/operations.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {RedirectService} from "../../services/redirect.service";
 
 @Component({
   selector: 'app-prd-fin-entre',
@@ -22,7 +23,7 @@ export class PrdFinEntreComponent implements OnInit{
 
 
   constructor(private operationService :OperationsService, private fb : FormBuilder,
-              private route:ActivatedRoute,private router:Router) {
+              private route:ActivatedRoute,private router:Router,private redirectService: RedirectService) {
   }
 
   handelGetOperationsPfEntr(){
@@ -55,6 +56,7 @@ export class PrdFinEntreComponent implements OnInit{
   }
 
   handelUpdateOperation(o: Operation) {
-    this.router.navigateByUrl("/updateOperation/"+o.idOperation)
+    this.router.navigateByUrl("/updateOperation/"+o.idOperation);
+    this.redirectService.setRedirectTo('/OpPfEntr');
   }
 }

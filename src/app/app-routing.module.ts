@@ -25,6 +25,8 @@ import {EmballageEntreComponent} from "./stock/emballage-entre/emballage-entre.c
 import {EmballageSortieComponent} from "./stock/emballage-sortie/emballage-sortie.component";
 import {PrdFinEntreComponent} from "./stock/prd-fin-entre/prd-fin-entre.component";
 import {PrdFinSortieComponent} from "./stock/prd-fin-sortie/prd-fin-sortie.component";
+import {NewEmballageEntreComponent} from "./stock/new-emballage-entre/new-emballage-entre.component";
+import {NewProdFiniEntreComponent} from "./stock/new-prod-fini-entre/new-prod-fini-entre.component";
 
 const routes: Routes = [
   {path:"n", component: LoginComponent },
@@ -58,7 +60,9 @@ const routes: Routes = [
 
   {path:"updateOperation/:idOperation", component: UpdateOperationComponent},
   {path:"OpEmbEntr", component: EmballageEntreComponent},
+  {path:"NewOpEmbEntr", component: NewEmballageEntreComponent},
   {path:"OpEmbSort", component: EmballageSortieComponent},
+  {path:"NewPrdFiniEntr", component: NewProdFiniEntreComponent},
   {path:"OpPfEntr", component: PrdFinEntreComponent},
   {path:"OpPfSort", component: PrdFinSortieComponent},
 
