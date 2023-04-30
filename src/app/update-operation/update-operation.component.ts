@@ -53,11 +53,7 @@ export class UpdateOperationComponent implements OnInit{
           code_Depot:this.fb.control(this.operation.code_Depot),
           matriculation:this.fb.control(this.operation.matriculation),
           quantite:this.fb.control(this.operation.quantite),
-
           n_Lot:this.fb.control(this.operation.n_Lot),
-
-          
-
           allee:this.fb.control(this.operation.allee),
           rangee: this.fb.control(this.operation.rangee),
           niveau: this.fb.control(this.operation.niveau),
