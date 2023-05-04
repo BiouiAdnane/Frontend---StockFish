@@ -28,23 +28,30 @@
 
 
         <div class="mb-3">
-          <label class="form-label">Allé :</label>
-          <input type="text" formControlName="allee" class="form-control">
+          <label class="form-label offset-1">Allé :</label>
+          <label class="form-label offset-4">Rangée :</label>
+          <label class="form-label offset-3">Niveau :</label>
+          <div class="d-flex">
+            <select formControlName="allee" class="form-select me-2" style="width: 33%;">
+              <option  *ngFor="let allee of allees | async" [value]="allee">{{ (allee) }}</option>
+            </select>
+            <select formControlName="rangee" class="form-select me-2" style="width: 33%;">
+              <option *ngFor="let rangee of rangees | async" [value]="rangee">{{ rangee}}</option>
+            </select>
+            <select formControlName="niveau" class="form-select" style="width: 33%;">
+              <option *ngFor="let niveau of niveaux | async" [value]="niveau">{{niveau  }}</option>
+            </select>
+          </div>
+
         </div>
 
-        <div class="mb-3">
-          <label class="form-label">Rangée :</label>
-          <input type="text" formControlName="rangee" class="form-control">
-        </div>
 
-        <div class="mb-3">
-          <label class="form-label">Niveau :</label>
-          <input type="text" formControlName="niveau" class="form-control">
-        </div>
 
         <div class="d-grid col-md-6 offset-3">
           <button class="btn btn-info ">Enregistrer</button></div>
       </form>
+      <div class="alert alert-danger" *ngIf="errorMessage">Ce block est déja utilisé !!!</div>
+
     </div>
   </div>
 </div>

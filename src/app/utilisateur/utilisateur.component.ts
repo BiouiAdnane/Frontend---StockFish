@@ -65,4 +65,8 @@ export class UtilisateurComponent implements OnInit{
   handelPersonneOperations(p: Utilisateur) {
     this.router.navigateByUrl("/userOperations/"+p.matriculation)
   }
+
+  print() {
+    window.print();
+  }
 }

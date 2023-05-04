@@ -51,4 +51,14 @@ export class OperationsService {
   public getArticleDipoPrdFini():Observable<Array<DispoArticle>>{
     return this.http.get<Array<DispoArticle>>(this.backendHost+"/operations/depots/articles/prf")
   }
+
+  public getAlleeDispo(code_Depot:number):Observable<Array<number>>{
+    return this.http.get<Array<number>>(this.backendHost+"/operations/allees/"+code_Depot)
+  }
+  public getRangeeDispo(code_Depot:number, allee:number):Observable<Array<number>>{
+    return this.http.get<Array<number>>(this.backendHost+"/operations/allees/rangees/"+code_Depot+"/"+allee)
+  }
+  public getNiveauDispo(code_Depot:number, allee:number, rangee:number):Observable<Array<number>>{
+    return this.http.get<Array<number>>(this.backendHost+"/operations/allees/rangees/niveaux/"+code_Depot+"/"+allee+"/"+rangee)
+  }
 }

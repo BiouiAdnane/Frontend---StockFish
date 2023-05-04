@@ -1,10 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, NgIterable, OnInit} from '@angular/core';
 import {Operation, TypeOp} from "../../model/operation";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserOperationsService} from "../../services/user-operations.service";
 import {RedirectService} from "../../services/redirect.service";
 import {Utilisateur} from "../../model/Utilisateur.model";
+import {SaveOpExceptionService} from "../../services/save-op-exception.service";
+import {OperationsService} from "../../services/operations.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-new-emballage-entre',
@@ -13,14 +16,21 @@ import {Utilisateur} from "../../model/Utilisateur.model";
 })
 export class NewEmballageEntreComponent implements OnInit{
 
-  typeOperation!:TypeOp;
+  errorMessage!:string;
   operation!:Operation;
   newOperationEmbFormGroup!: FormGroup;
+  isCustomLot = false;
+  code_Depot:number=1;
+  allees!: Observable<Array<number>> & NgIterable<number>;
+  selectedAllee!: number ;
+  selectedRangee!: number ;
+  rangees!: Observable<Array<number>> & NgIterable<number>;
+  niveaux!: Observable<Array<number>> & NgIterable<number>;
   form: FormGroup = this.fb.group({})
 
 
-  constructor(private route:ActivatedRoute,private router:Router, public operationService : UserOperationsService,
-              private fb : FormBuilder,private redirectService: RedirectService) {
+  constructor(private route:ActivatedRoute,private router:Router, public operationService : UserOperationsService,public opService :OperationsService,
+              private fb : FormBuilder,private redirectService: RedirectService,public exceptionService:SaveOpExceptionService) {
     this.newOperationEmbFormGroup=new FormGroup({
       idOperation:new FormControl(),
       typeOpr:new FormControl(),
@@ -54,6 +64,18 @@ export class NewEmballageEntreComponent implements OnInit{
           dateOpertaion: this.fb.control(null),
 
         });
+        this.allees=this.opService.getAlleeDispo(this.code_Depot)as Observable<Array<number>> & NgIterable<number>
+          this.newOperationEmbFormGroup.get('allee')!.valueChanges.subscribe(value => {
+          this.selectedAllee = value;
+        this.rangees=this.opService.getRangeeDispo(this.code_Depot,this.selectedAllee)as Observable<number[]> & NgIterable<number>
+
+    });
+    this.newOperationEmbFormGroup.get('rangee')!.valueChanges.subscribe(value => {
+      this.selectedRangee = value;
+      this.niveaux=this.opService.getNiveauDispo(this.code_Depot,this.selectedAllee,this.selectedRangee)as Observable<number[]> & NgIterable<number>
+
+    });
+
   }
 
   handleNlotpardefeaut(){
@@ -64,25 +86,26 @@ export class NewEmballageEntreComponent implements OnInit{
         this.newOperationEmbFormGroup.reset();
         this.router.navigateByUrl('/OpEmbEntr')
       }, error:(err)=>{
-        console.log(err)
+        console.log(err);
+        this.errorMessage = err; // stocke le message d'erreur dans la variable
       }
     })
   }
 
-  handleNlotPersonaliser(){
-    let data: Operation=this.newOperationEmbFormGroup.value;
-    this.operationService.updateOperation(data).subscribe({
-      next:(data)=>{
+  handleNlotPersonaliser() {
+    let data: Operation = this.newOperationEmbFormGroup.value;
+    this.exceptionService.createNewOperation(data).subscribe({
+      next: (data) => {
         alert("L'enregistrement est fait par succés");
         this.newOperationEmbFormGroup.reset();
-        this.router.navigateByUrl('/OpEmbEntr')
-      }, error:(err)=>{
-        console.log(err)
+        this.router.navigateByUrl('/OpEmbEntr');
+      },
+      error: (err) => {
+        this.errorMessage = err.message;
       }
-    })
+    });
   }
 
-  isCustomLot = false;
 
   toggleButton(): void {
     const button = document.getElementById('myButton') as HTMLButtonElement;

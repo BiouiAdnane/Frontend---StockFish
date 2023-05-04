@@ -1,9 +1,9 @@
 <div class="container mt-2">
   <ng-template #failureOrLoading >
-    <ng-container *ngIf="errMessage; else loading">
-      <div  class="text-danger">
-        {{errMessage}}
-      </div>
+    <ng-container class="col col-md-6 " *ngIf="errMessage; else loading">
+      <div class="alert alert-danger col col-md-6 offset-3" *ngIf="errMessage"><h2>ERREUR !!!</h2>
+        <hr>
+      <h4>Un problème est survenue lors de chargements des données.</h4></div>
     </ng-container>
     <ng-template #loading >
 
@@ -28,7 +28,7 @@
       <div *ngIf="errMessage">
       {{errMessage}}
     </div>
-      <div class="card-header bg-info"> Les personnelles :</div>
+      <div class="card-header bg-info"> Les personnelles : <button class="justify-content-end" (click)="print()">Imprimer</button></div>
       <div class="card-body">
         <div *ngIf="searchFormGroup">
           <form [formGroup]="searchFormGroup" (ngSubmit)="handelSearchPersonne()">
