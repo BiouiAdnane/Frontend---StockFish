@@ -8,7 +8,7 @@
           <label class="form-label">Designiation article :</label>
           <input type="text" formControlName="designiation" class="form-control">
         </div>
-        <div class="mb-3">
+        <div class="mb-3" *ngIf="article?.ingredient">
           <label class="form-label">Ingredient :</label>
           <select formControlName="ingredient" class="form-select">
             <option *ngFor="let ingredient of ingredients" [value]="ingredient.id_Famille">{{ ingredient.nom }}</option>
@@ -16,21 +16,21 @@
         </div>
 
 
-        <div class="mb-3">
+        <div class="mb-3" *ngIf="article">
           <label class="form-label">Marque :</label>
           <select formControlName="marque" class="form-select">
             <option *ngFor="let marque of marques" [value]="marque.id_Famille">{{ marque.nom }}</option>
           </select>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3" *ngIf="article">
           <label class="form-label">Nature :</label>
           <select formControlName="nature" class="form-select">
             <option *ngFor="let nature of natures" [value]="nature.id_Famille">{{ nature.nom }}</option>
           </select>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3" *ngIf="article">
           <label class="form-label">Qualite :</label>
           <select formControlName="qualite" class="form-select">
             <option *ngFor="let qualite of qualites" [value]="qualite.id_Famille">{{ qualite.nom }}</option>

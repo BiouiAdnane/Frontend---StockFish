@@ -35,6 +35,11 @@ export class UpdateUtilisateurComponent implements OnInit{
     this.utilisateurService.getPersonne(this.matriculation).subscribe({
       next:(personne)=>{
         this.personne=personne;
+
+        // Assigner la valeur sélectionnée à la propriété selectedType
+        this.selectedType = this.personne.typeEmploye as typeEmploye;
+
+
         this.updatePersonneFormGroup=this.fb.group({
           matriculation:this.fb.control(this.personne.matriculation),
           nom:this.fb.control(this.personne.nom),
@@ -50,6 +55,7 @@ export class UpdateUtilisateurComponent implements OnInit{
       }
     })
   }
+
 
   handleUpdatePersonne() {
     let p= this.updatePersonneFormGroup.value;

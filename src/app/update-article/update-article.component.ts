@@ -25,58 +25,93 @@ export class UpdateArticleComponent implements OnInit{
   qualites: Famille[] = [];
 
 
-  constructor(private route:ActivatedRoute,private router:Router, public articleService : ArticleService,
-              private fb : FormBuilder , private familleService: FamilleService) {
-    this.article=this.router.getCurrentNavigation()?.extras.state as Article;
-    this.updateArticleFormGroup=new FormGroup({
-      code_Article:new FormControl(),
-      designiation:new FormControl(),
-      ingredient:new FormControl(),
-      marque:new FormControl(),
-      nature:new FormControl(),
-      qualite:new FormControl(),
-    })
-
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    public articleService: ArticleService,
+    private fb: FormBuilder,
+    private familleService: FamilleService
+  ) {
+    this.article = this.router.getCurrentNavigation()?.extras.state as Article;
+    this.updateArticleFormGroup = new FormGroup({
+      code_Article: new FormControl(),
+      designiation: new FormControl(),
+      ingredient: new FormControl(),
+      marque: new FormControl(),
+      nature: new FormControl(),
+      qualite: new FormControl(),
+    });
   }
 
   ngOnInit(): void {
-    this.code_Article=this.route.snapshot.params['code_Article'];
+    this.code_Article = this.route.snapshot.params['code_Article'];
+
+    this.updateArticleFormGroup = this.fb.group({
+      code_Article: this.fb.control(this.code_Article),
+      designiation: this.fb.control(''),
+      ingredient: this.fb.control(''),
+      marque: this.fb.control(''),
+      nature: this.fb.control(''),
+      qualite: this.fb.control(''),
+    });
+
     this.articleService.getArticle(this.code_Article).subscribe({
-      next:(article)=>{
-        this.article=article;
-        this.updateArticleFormGroup=this.fb.group({
-          code_Article:this.fb.control(this.article.code_Article),
-          designiation:this.fb.control(this.article.designiation),
-          ingredient:this.fb.control(this.article.ingredient),
-          marque:this.fb.control(this.article.marque),
-          nature:this.fb.control(this.article.nature),
-          qualite: this.fb.control(this.article.qualite),
-        })
+      next: (article) => {
+        this.article = article;
+        this.updateArticleFormGroup.setValue({
+          code_Article: this.article.code_Article,
+          designiation: this.article.designiation,
+          ingredient: this.article.ingredient.id_Famille,
+          marque: this.article.marque.id_Famille,
+          nature: this.article.nature.id_Famille,
+          qualite: this.article.qualite.id_Famille,
+        });
       },
-      error : (err)=> {
+      error: (err) => {
         console.log(err);
-      }
-    })
+      },
+    });
 
     this.loadIngredients();
     this.loadMarques();
     this.loadQualites();
-    this.loadNatures()
+    this.loadNatures();
   }
 
+
   handleUpdateArticle() {
-    let a= this.updateArticleFormGroup.value;
-    a.code_Article=this.article.code_Article;
+    let a = this.updateArticleFormGroup.value;
+    a.code_Article = this.article.code_Article;
+
+    // Récupérer les id_Famille des ingrédients, de la nature, de la qualité et de la marque sélectionnés
+    let ingredientId = this.updateArticleFormGroup.get('ingredient')?.value;
+    let natureId = this.updateArticleFormGroup.get('nature')?.value;
+    let qualiteId = this.updateArticleFormGroup.get('qualite')?.value;
+    let marqueId = this.updateArticleFormGroup.get('marque')?.value;
+
+    // Récupérer les objets Famille correspondant aux id_Famille sélectionnés
+    let ingredient = this.ingredients.find(i => i.id_Famille == ingredientId);
+    let nature = this.natures.find(n => n.id_Famille == natureId);
+    let qualite = this.qualites.find(q => q.id_Famille == qualiteId);
+    let marque = this.marques.find(m => m.id_Famille == marqueId);
+
+    // Assigner les objets Famille correspondant aux propriétés d'article correspondantes
+    a.ingredient = ingredient;
+    a.nature = nature;
+    a.qualite = qualite;
+    a.marque = marque;
+
     this.articleService.saveArticle(a).subscribe({
-      next : (data)=>{
-        alert("La modification est faite avec succée");
-        this.router.navigateByUrl("/article")
+      next: (data) => {
+        alert("La modification est faite avec succès");
+        this.router.navigateByUrl("/article");
       },
-      error:err => {
+      error: (err) => {
         console.log(err);
       }
-    })
+    });
   }
+
 
   loadIngredients(): void {
     this.familleService.getIngredients().subscribe({
