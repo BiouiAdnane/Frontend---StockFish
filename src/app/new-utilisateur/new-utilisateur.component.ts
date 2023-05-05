@@ -30,6 +30,10 @@ export class NewUtilisateurComponent implements OnInit{
   }
 
   handleSavePersonne(){
+    if (this.newPersonneFormGroup.invalid) {
+      alert("Veuillez remplir correctement tous les champs du formulaire.");
+      return;
+    }
 
     let data: Utilisateur=this.newPersonneFormGroup.value;
     this.utilisateurService.savePersonne(data).subscribe({

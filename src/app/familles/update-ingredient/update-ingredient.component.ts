@@ -42,6 +42,10 @@ export class UpdateIngredientComponent implements OnInit{
   }
 
   handleUpdateIngredient() {
+    if (this.updateIngredientFormGroup.invalid) {
+      alert("Veuillez remplir correctement tous les champs du formulaire.");
+      return;
+    }
     let i= this.updateIngredientFormGroup.value;
     i.id_Famille=this.ingredient.id_Famille;
     this.ingredientService.saveIngredient(i).subscribe({

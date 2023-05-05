@@ -6,26 +6,26 @@
         <div class="mb-3">
           <label class="form-label">Nom :</label>
           <input type="text" formControlName="nom" class="form-control" required>
-          <span class="text-danger" *ngIf="newPersonneFormGroup.controls['nom'].touched
+          <!--<span class="text-danger" *ngIf="newPersonneFormGroup.controls['nom'].touched
           &&newPersonneFormGroup.controls['nom'].errors
           &&newPersonneFormGroup.controls['nom'].errors!['required']"> Le nom est important !!!
-        </span>
+        </span>-->
         </div>
         <div class="mb-3">
           <label class="form-label">Prénom :</label>
           <input type="text" formControlName="prenom" class="form-control" required>
-          <span class="text-danger" *ngIf="newPersonneFormGroup.controls['nom'].touched
+          <!--<span class="text-danger" *ngIf="newPersonneFormGroup.controls['nom'].touched
           &&newPersonneFormGroup.controls['prenom'].errors
           &&newPersonneFormGroup.controls['prenom'].errors!['required']"> Le prénom est important !!!
-        </span>
+        </span>-->
         </div>
         <div class="mb-3">
           <label class="form-label">Email :</label>
           <input type="email" formControlName="email" class="form-control">
-          <span class="text-danger" *ngIf="newPersonneFormGroup.controls['email'].touched
+          <!--<span class="text-danger" *ngIf="newPersonneFormGroup.controls['email'].touched
            &&newPersonneFormGroup.controls['email'].errors
            &&newPersonneFormGroup.controls['email'].errors!['email']"> l'email n'est pas valide !!!
-         </span>
+         </span>-->
         </div>
 
         <div class="mb-3">
@@ -47,10 +47,10 @@
             <input class="form-check-input ms-3" value="Gestionaire_ProduitFini" [(ngModel)]="selectedType" type="radio" formControlName="typeEmploye" required>
             <label class="form-check-label ms-1">Gestionnaire produit fini</label>
           </div>
-          <span class="text-danger" *ngIf="newPersonneFormGroup.controls['typeEmploye'].touched
+          <!--<span class="text-danger" *ngIf="newPersonneFormGroup.controls['typeEmploye'].touched
            &&newPersonneFormGroup.controls['typeEmploye'].errors
            &&newPersonneFormGroup.controls['typeEmploye'].errors!['email']"> Le fonctionalité d'utilisateur est importante !!!
-         </span>
+         </span>-->
         </div>
         <div class="mb-3">
           <label class="form-label">Numéro de Tel :</label>

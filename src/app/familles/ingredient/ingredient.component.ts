@@ -64,7 +64,7 @@ export class IngredientComponent implements OnInit{
 
   handleAddIngredient() {
     if (this.newIngredientFormGroup.invalid) {
-      alert("Veuillez remplir correctement tous les champs du formulaire.");
+      alert("Veuillez remplir correctement le champs du formulaire.");
       return;
     }
 
