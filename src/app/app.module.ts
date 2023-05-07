@@ -35,6 +35,7 @@ import { NewEmballageEntreComponent } from './stock/new-emballage-entre/new-emba
 import { NewProdFiniEntreComponent } from './stock/new-prod-fini-entre/new-prod-fini-entre.component';
 import { ArticleEmbDispoComponent } from './stock/article-emb-dispo/article-emb-dispo.component';
 import { ArticlePrfDispoComponent } from './stock/article-prf-dispo/article-prf-dispo.component';
+import { OperationDepotComponent } from './stock/operation-depot/operation-depot.component';
 
 
 @NgModule({
@@ -70,7 +71,7 @@ import { ArticlePrfDispoComponent } from './stock/article-prf-dispo/article-prf-
     NewProdFiniEntreComponent,
     ArticleEmbDispoComponent,
     ArticlePrfDispoComponent,
-
+    OperationDepotComponent,
 
   ],
   imports: [

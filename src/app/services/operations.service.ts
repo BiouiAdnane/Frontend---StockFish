@@ -31,6 +31,9 @@ export class OperationsService {
   public getOperation(idOperation : number):Observable<Operation>{
     return this.http.get<Operation>(this.backendHost+"/operations/"+ idOperation)
   }
+  public getDepotOperation(code_Depot : number):Observable<Array<Operation>>{
+    return this.http.get<Array<Operation>>(this.backendHost+"/operations/depots/"+ code_Depot)
+  }
   public deleteOperation(idOperation : number){
     return this.http.delete(this.backendHost+"/operations/"+idOperation)
   }
