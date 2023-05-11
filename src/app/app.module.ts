@@ -36,6 +36,7 @@ import { NewProdFiniEntreComponent } from './stock/new-prod-fini-entre/new-prod-
 import { ArticleEmbDispoComponent } from './stock/article-emb-dispo/article-emb-dispo.component';
 import { ArticlePrfDispoComponent } from './stock/article-prf-dispo/article-prf-dispo.component';
 import { OperationDepotComponent } from './stock/operation-depot/operation-depot.component';
+import {HomeComponent} from "./home/home.component";
 
 
 @NgModule({
@@ -72,6 +73,7 @@ import { OperationDepotComponent } from './stock/operation-depot/operation-depot
     ArticleEmbDispoComponent,
     ArticlePrfDispoComponent,
     OperationDepotComponent,
+    HomeComponent,
 
   ],
   imports: [

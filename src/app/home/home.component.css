@@ -1,0 +1,15 @@
+#depotChart {
+  width: 100%;
+  height: 300px;
+}
+.barre{
+  margin: 15px ;
+  width: 450px;
+  height: 30%;
+  border-color: black;
+  border: solid ;
+}
+
+.titre{
+  margin: 15px 30px;
+}

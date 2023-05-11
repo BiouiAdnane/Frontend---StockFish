@@ -53,7 +53,7 @@ export class NewProdFiniEntreComponent implements OnInit{
       typeOpr: this.fb.control("E"),
       code_Article: this.fb.control(null),
       designation: this.fb.control(null),
-      code_Depot: this.fb.control(1),
+      code_Depot: this.fb.control(2),
       matriculation: this.fb.control(null),
       quantite: this.fb.control(null),
       n_Lot: this.fb.control(null),

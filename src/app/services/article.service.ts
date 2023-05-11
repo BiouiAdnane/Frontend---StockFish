@@ -15,6 +15,9 @@ export class ArticleService {
   public searchArticle(keyword : String):Observable<Array<Article>>{
     return this.http.get<Array<Article>>(this.backendHost+"/articles/search?keyword="+keyword)
   }
+  public getListArticles():Observable<Array<Article>>{
+    return this.http.get<Array<Article>>(this.backendHost+"/articles")
+  }
 
   public getArticle(code_Article : number):Observable<Article>{
     return this.http.get<Article>(this.backendHost+"/articles/"+ code_Article)
