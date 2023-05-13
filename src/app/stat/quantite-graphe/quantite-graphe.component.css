@@ -1,0 +1,23 @@
+.graphe{
+  margin: 10px 15px;
+  border: solid 3px black;
+  padding: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.tete{
+  padding-left:55px;
+  padding-bottom: 10px;
+  margin-left: 60px;
+  float: left;
+
+}
+.graphe:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.titre{
+  padding: 10px 75px;
+}
+.soutitre{
+  padding-right: 10px;
+}

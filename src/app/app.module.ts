@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { NewUtilisateurComponent } from './new-utilisateur/new-utilisateur.component';
 import { DepotComponent } from './depot/depot.component';
@@ -37,6 +37,8 @@ import { ArticleEmbDispoComponent } from './stock/article-emb-dispo/article-emb-
 import { ArticlePrfDispoComponent } from './stock/article-prf-dispo/article-prf-dispo.component';
 import { OperationDepotComponent } from './stock/operation-depot/operation-depot.component';
 import {HomeComponent} from "./home/home.component";
+import { OperationGraphComponent } from './stat/operation-graph/operation-graph.component';
+import { QuantiteGrapheComponent } from './stat/quantite-graphe/quantite-graphe.component';
 
 
 @NgModule({
@@ -74,6 +76,9 @@ import {HomeComponent} from "./home/home.component";
     ArticlePrfDispoComponent,
     OperationDepotComponent,
     HomeComponent,
+    OperationGraphComponent,
+    QuantiteGrapheComponent,
+
 
   ],
   imports: [
@@ -81,6 +86,7 @@ import {HomeComponent} from "./home/home.component";
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule ,
   ],
   providers: [],
   bootstrap: [AppComponent]
