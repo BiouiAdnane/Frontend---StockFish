@@ -1,7 +1,4 @@
 <app-nav-bar></app-nav-bar>
 
-<app-admin-dashboard></app-admin-dashboard>
-
-<router-outlet>
-
-</router-outlet>
+<app-admin-dashboard *ngIf="!isRouteLoading"></app-admin-dashboard>
+<router-outlet (activate)="onRouteActivate()" (deactivate)="onRouteDeactivate()"></router-outlet>

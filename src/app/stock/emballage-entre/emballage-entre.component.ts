@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {catchError, map, Observable, throwError} from "rxjs";
 import {Operation} from "../../model/operation";
-import {UserOperationsService} from "../../services/user-operations.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {OperationsService} from "../../services/operations.service";
 import {RedirectService} from "../../services/redirect.service";

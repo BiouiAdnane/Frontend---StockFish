@@ -4,6 +4,7 @@ import {map, Observable} from "rxjs";
 import {Operation} from "../model/operation";
 import {DispoArticle} from "../model/DispoArticle";
 import {OperationResponse} from "../model/OperationResponse";
+import {Entree} from "../model/Entree";
 
 @Injectable({
   providedIn: 'root'
@@ -64,6 +65,10 @@ export class OperationsService {
   }
   public getNiveauDispo(code_Depot:number, allee:number, rangee:number):Observable<Array<number>>{
     return this.http.get<Array<number>>(this.backendHost+"/operations/allees/rangees/niveaux/"+code_Depot+"/"+allee+"/"+rangee)
+  }
+
+  public getNbrOperations(code_Article:number, qte:number):Observable<Entree>{
+    return this.http.get<Entree>(this.backendHost+"/operations/depots/"+code_Article+"/"+qte)
   }
 
   getOperationsByDepotAndMonthAndYear(codeDepot: number, month: number, year: number): Observable<any> {

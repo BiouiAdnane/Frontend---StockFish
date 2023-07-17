@@ -12,5 +12,5 @@ tel:String;
 export enum typeEmploye{
   Administrateur="Administrateur",
   Gestionaire_Emballage="Gestionaire_Emballage",
-  Gestionaire_ProduitFini="Gestionaire_ProduitFini,"
+  Gestionaire_ProduitFini="Gestionaire_ProduitFini",
 }

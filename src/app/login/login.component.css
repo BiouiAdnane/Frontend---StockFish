@@ -86,3 +86,26 @@ label {
 .text-center {
   text-align: center;
 }
+
+#cont{
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 5%;
+}
+#text{
+  background: #007bff;
+  color: white;
+}
+.card-header{
+  background: #007bff;
+}
+.card-body{
+  background: #cccccc;
+}
+#image{
+  border-radius: 50%;
+  height: 90px;
+  margin-left: 40%;
+  margin-bottom: 10px;
+}
+

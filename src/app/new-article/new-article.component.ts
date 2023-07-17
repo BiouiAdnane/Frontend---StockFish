@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ArticleService} from "../services/article.service";
-import {Article} from "../model/article";
+import {Article, Size, TypeArticle} from "../model/article";
 import {Famille} from "../model/famille";
 import {FamilleService} from "../services/famille.service";
 
@@ -17,6 +17,9 @@ export class NewArticleComponent implements OnInit {
   marques: Famille[] = [];
   natures: Famille[] = [];
   qualites: Famille[] = [];
+  selectedSize!: Size;
+  selectedTypeArticle!: TypeArticle;
+
 
   constructor(private fb: FormBuilder, private articleService: ArticleService, private familleService: FamilleService) {
   }
@@ -24,6 +27,8 @@ export class NewArticleComponent implements OnInit {
   ngOnInit(): void {
     this.newArticleFormGroup = this.fb.group({
       designiation: ['', Validators.required],
+      size: ['', Validators.required],
+      typeArticle: ['', Validators.required],
       ingredient: ['', Validators.required],
       marque: ['', Validators.required],
       nature: ['', Validators.required],
@@ -52,6 +57,13 @@ export class NewArticleComponent implements OnInit {
         }
       })
     }
+
+  getSizes(): string[] {
+    return Object.values(Size);
+  }
+  getTypesArticles(): string[] {
+    return Object.values(TypeArticle);
+  }
 
   loadIngredients(): void {
     this.familleService.getIngredients().subscribe({
