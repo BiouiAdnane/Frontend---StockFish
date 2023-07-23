@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {catchError, map, Observable, throwError} from "rxjs";
-import {Depot} from "../model/depot";
-import {DepotService} from "../services/depot-service";
 import {Router} from "@angular/router";
 import {Article} from "../model/article";
 import {ArticleService} from "../services/article.service";
