@@ -61,4 +61,8 @@ export class DepotComponent implements OnInit{
   handelUpdateDepot(d: Depot) {
     this.router.navigateByUrl("/updateDepot/"+d.code_Depot)
   }
+
+  handelOperationDepot(d: Depot) {
+    this.router.navigateByUrl("/OperDep/"+d.code_Depot)
+  }
 }

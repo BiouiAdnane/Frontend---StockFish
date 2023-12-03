@@ -36,13 +36,15 @@
         <table class="table">
           <thead>
           <tr>
-            <th >Code Article</th><th>Designiation</th> <th>Ingredient</th><th>Nature</th><th>Marque</th><th>Qualite</th><th>Supp</th><th>Mod</th>
+            <th >Code Article</th><th>Designiation</th> <th>Taille</th><th>Type Article</th><th>Ingredient</th><th>Nature</th><th>Marque</th><th>Qualite</th><th>Supp</th><th>Mod</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let a of article |async ">
             <td>{{a.code_Article}}</td>
             <td>{{a.designiation}}</td>
+            <td>{{a.size}}</td>
+            <td>{{a.typeArticle}}</td>
             <td>{{a.ingredient.nom}}</td>
             <td>{{a.nature.nom}}</td>
             <td>{{a.marque.nom}}</td>

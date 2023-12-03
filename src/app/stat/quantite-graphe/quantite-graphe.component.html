@@ -1,0 +1,43 @@
+
+<div class="graphe">
+  <div>
+    <h2 class="titre">Quantité totale pour les opésration E / S pour chaque Depot </h2>
+  </div>
+
+  <div class="tete">
+    <label for="codeDepot" class="soutitre">Depot:</label>
+    <select id="codeDepot" [(ngModel)]="codeDepot" (change)="updateChart()">
+      <option value="1">Depot Emballage</option>
+      <option value="2">Depot Produit Fini</option>
+    </select>
+  </div>
+
+  <div class="tete">
+    <label for="month" class="soutitre">Mois:</label>
+    <select id="month" [(ngModel)]="month" (change)="updateChart()">
+      <option value="1">Janvier</option>
+      <option value="2">Février</option>
+      <option value="3">Mars</option>
+      <option value="4">Avril</option>
+      <option value="5">Mai</option>
+      <option value="6">Juin</option>
+      <option value="7">Juillet</option>
+      <option value="8">Août</option>
+      <option value="9">Septembere</option>
+      <option value="10">Octobere</option>
+      <option value="11">Novembere</option>
+      <option value="12">Décember</option>
+    </select>
+  </div>
+  <div class="tete">
+    <label for="year" class="soutitre">Année:</label>
+    <select id="year" [(ngModel)]="year" (change)="updateChart()">
+      <option *ngFor="let option of yearOptions" [value]="option">{{ option }}</option>
+    </select>
+  </div>
+
+  <div class="opGraph">
+    <canvas id="myChart1"></canvas>
+  </div>
+
+</div>

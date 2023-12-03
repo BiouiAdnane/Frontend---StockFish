@@ -4,7 +4,7 @@
       <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="./assets/logo.jpg" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+            <img src="./assets/logo.jpg" alt="Logo" width="60" height="60" class="logo">
             <h2 class="navbarAveiroText"><strong>Société Nouvelle Aveiro </strong></h2>
           </a>
         </div>
@@ -14,37 +14,51 @@
       </button>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel"> Menu:</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+              <a class="nav-link active" aria-current="page" routerLink="">
+                <img src="assets/logo-home.png" class="photo-logo">
+                Page d'acceuil</a>
             </li>
             <li class="nav-item dropdown">
+
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="assets/logo-technic.png" class="photo-logo">
                 Base Technique
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" routerLink="/users">Gestion des utilisateurs</a></li>
+                <li><a class="dropdown-item" routerLink="/users">
+                  <img src="assets/logo-utilisateur.png" class="photo-logo">
+                  Gestion des utilisateurs</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
 
-                <li><a class="dropdown-item" routerLink="/depot">Gestion des dépots</a></li>
+                <li><a class="dropdown-item" routerLink="/depot">
+                  <img src="assets/logo-depot.png" class="photo-logo">
+                  Gestion des dépots</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" routerLink="/article">Gestion des articles</a></li>
+                <li><a class="dropdown-item" routerLink="/article">
+                  <img src="assets/logo-article.png" class="photo-logo">
+                  Gestion des articles</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Gestion des fournisseurs</a></li>
+                <li><a class="dropdown-item" href="#">
+                  <img src="assets/logo-fournisseur.png" class="photo-logo">
+                  Gestion des fournisseurs</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Gestion des clients</a></li>
+                <li><a class="dropdown-item" href="#">
+                  <img src="assets/logo-client.png" class="photo-logo">
+                  Gestion des clients</a></li>
 
 
               </ul>
@@ -52,56 +66,79 @@
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="assets/logo-famille.png" class="photo-logo">
                 Gestion des familles
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" routerLink="/marque">Marque</a></li>
+                <li><a class="dropdown-item" routerLink="/marque">
+                  <img src="assets/logo-marquee.png" class="photo-logo">
+                  Marque</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" routerLink="/ingredient">Ingrédient</a></li>
+                <li><a class="dropdown-item" routerLink="/ingredient">
+                  <img src="assets/logo-ingredient.png" class="photo-logo">
+                  Ingrédient</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" routerLink="/qualite">Qualité</a></li>
+                <li><a class="dropdown-item" routerLink="/qualite">
+                  <img src="assets/logo-qualite.png" class="photo-logo">
+                  Qualité</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" routerLink="/nature">Nature</a></li>
+                <li><a class="dropdown-item" routerLink="/nature">
+                  <img src="assets/logo-nature.png" class="photo-logo">
+                  Nature</a></li>
               </ul>
             </li>
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="assets/logo-stockEm.png" class="photo-logo">
                 Stock emballage
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" routerLink="/OpEmbEntr">Opération entrée</a></li>
+                <li><a class="dropdown-item" routerLink="/OpEmbEntr">
+                  <img src="assets/logo-article.png" class="photo-logo">
+                  Opération entrée</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" routerLink="/OpEmbSort">Opération sortie</a></li>
+                <li><a class="dropdown-item" routerLink="/OpEmbSort">
+                  <img src="assets/logo-article.png" class="photo-logo">
+                  Opération sortie</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" routerLink="/ArtEmbDispo">Articles d'emballages</a></li>
+                <li><a class="dropdown-item" routerLink="/ArtEmbDispo">
+                  <img src="assets/logo-article.png" class="photo-logo">
+                  Articles d'emballages</a></li>
               </ul>
             </li>
 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="assets/logo-stockPF.png" class="photo-logo">
                 Stock produit fini
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item"routerLink="/OpPfEntr">Opération entrée</a></li>
+                <li><a class="dropdown-item"routerLink="/OpPfEntr">
+                  <img src="assets/logo-article.png" class="photo-logo">
+                  Opération entrée</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" routerLink="/OpPfSort">Opération sortie</a></li>
+                <li><a class="dropdown-item" routerLink="/OpPfSort">
+                  <img src="assets/logo-article.png" class="photo-logo">
+                  Opération sortie</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" routerLink="/ArtPrfDispo">Articles des produits finis</a></li>
+                <li><a class="dropdown-item" routerLink="/ArtPrfDispo">
+                  <img src="assets/logo-article.png" class="photo-logo">
+                  Articles des produits finis</a></li>
               </ul>
             </li>
           </ul>

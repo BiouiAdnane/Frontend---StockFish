@@ -26,6 +26,10 @@ export class UtilisateurService {
     return this.http.post(this.backendHost + "/personnes" ,personne)
   }
 
+  public countPersonne(){
+    return this.http.get <number>(this.backendHost + "/personnes/count")
+  }
+
   public updatePersonne(personne :Utilisateur){
     return this.http.put(this.backendHost + "/personnes/" +personne.matriculation, personne)
   }

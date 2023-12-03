@@ -23,4 +23,8 @@ export class FamilleService {
   getQualites(): Observable<Famille[]> {
     return this.http.get<Famille[]>(this.backendHost+"/qualites");
   }
+
+  countFamille(): Observable<number>{
+    return this.http.get<number>(this.backendHost+"/count")
+  }
 }

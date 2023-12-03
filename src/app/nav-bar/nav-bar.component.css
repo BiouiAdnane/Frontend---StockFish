@@ -3,5 +3,22 @@
   margin-top: -55px;
 }
 #navbarAveiro{
-background: azure;
+background: rgba(54, 162, 235, 1) ;
+}
+.logo{
+  border-radius: 50%;
+}
+.offcanvas-body, .offcanvas-header{
+  background: rgba(152, 200, 236, 0.2);
+}
+.dropdown-menu{
+  font-size: 18px;
+}
+.nav-link.active, .nav-link.dropdown-toggle{
+  font-size: 22px;
+  font-family: Cambria;
+}
+.photo-logo{
+  height: 20px;
+  width: 20px;
 }

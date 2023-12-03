@@ -1,9 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, NgIterable, OnInit} from '@angular/core';
 import {Operation, TypeOp} from "../../model/operation";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserOperationsService} from "../../services/user-operations.service";
 import {RedirectService} from "../../services/redirect.service";
+import {Observable} from "rxjs";
+import {OperationsService} from "../../services/operations.service";
+import {SaveOpExceptionService} from "../../services/save-op-exception.service";
 
 @Component({
   selector: 'app-new-prod-fini-entre',
@@ -11,14 +14,23 @@ import {RedirectService} from "../../services/redirect.service";
   styleUrls: ['./new-prod-fini-entre.component.css']
 })
 export class NewProdFiniEntreComponent implements OnInit{
+
+  errorMessage!:string;
   operation!:Operation;
-  newOperationPrdFiniFormGroup!: FormGroup;
+  newOperationPrfFormGroup!: FormGroup;
+  isCustomLot = false;
+  code_Depot:number=2;
+  allees!: Observable<Array<number>> & NgIterable<number>;
+  selectedAllee!: number ;
+  selectedRangee!: number ;
+  rangees!: Observable<Array<number>> & NgIterable<number>;
+  niveaux!: Observable<Array<number>> & NgIterable<number>;
   form: FormGroup = this.fb.group({})
 
 
-  constructor(private route:ActivatedRoute,private router:Router, public operationService : UserOperationsService,
-              private fb : FormBuilder,private redirectService: RedirectService) {
-    this.newOperationPrdFiniFormGroup=new FormGroup({
+  constructor(private route:ActivatedRoute,private router:Router, public operationService : UserOperationsService,public opService :OperationsService,
+              private fb : FormBuilder,private redirectService: RedirectService,public exceptionService:SaveOpExceptionService) {
+    this.newOperationPrfFormGroup=new FormGroup({
       idOperation:new FormControl(),
       typeOpr:new FormControl(),
       quantite:new FormControl(),
@@ -36,7 +48,7 @@ export class NewProdFiniEntreComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.newOperationPrdFiniFormGroup=this.fb.group({
+    this.newOperationPrfFormGroup=this.fb.group({
       idOperation:this.fb.control(0),
       typeOpr: this.fb.control("E"),
       code_Article: this.fb.control(null),
@@ -51,35 +63,48 @@ export class NewProdFiniEntreComponent implements OnInit{
       dateOpertaion: this.fb.control(null),
 
     });
+    this.allees=this.opService.getAlleeDispo(this.code_Depot)as Observable<Array<number>> & NgIterable<number>
+    this.newOperationPrfFormGroup.get('allee')!.valueChanges.subscribe(value => {
+      this.selectedAllee = value;
+      this.rangees=this.opService.getRangeeDispo(this.code_Depot,this.selectedAllee)as Observable<number[]> & NgIterable<number>
+
+    });
+    this.newOperationPrfFormGroup.get('rangee')!.valueChanges.subscribe(value => {
+      this.selectedRangee = value;
+      this.niveaux=this.opService.getNiveauDispo(this.code_Depot,this.selectedAllee,this.selectedRangee)as Observable<number[]> & NgIterable<number>
+
+    });
+
   }
 
   handleNlotpardefeaut(){
-    let data: Operation=this.newOperationPrdFiniFormGroup.value;
+    let data: Operation=this.newOperationPrfFormGroup.value;
     this.operationService.saveOperation(data).subscribe({
       next:(data)=>{
         alert("L'enregistrement est fait par succés");
-        this.newOperationPrdFiniFormGroup.reset();
+        this.newOperationPrfFormGroup.reset();
         this.router.navigateByUrl('/OpPfEntr')
       }, error:(err)=>{
-        console.log(err)
+        console.log(err);
+        this.errorMessage = err; // stocke le message d'erreur dans la variable
       }
     })
   }
 
-  handleNlotPersonaliser(){
-    let data: Operation=this.newOperationPrdFiniFormGroup.value;
-    this.operationService.updateOperation(data).subscribe({
-      next:(data)=>{
+  handleNlotPersonaliser() {
+    let data: Operation = this.newOperationPrfFormGroup.value;
+    this.exceptionService.createNewOperation(data).subscribe({
+      next: (data) => {
         alert("L'enregistrement est fait par succés");
-        this.newOperationPrdFiniFormGroup.reset();
-        this.router.navigateByUrl('/OpPfEntr')
-      }, error:(err)=>{
-        console.log(err)
+        this.newOperationPrfFormGroup.reset();
+        this.router.navigateByUrl('/OpPfEntr');
+      },
+      error: (err) => {
+        this.errorMessage = err.message;
       }
-    })
+    });
   }
 
-  isCustomLot = false;
 
   toggleButton(): void {
     const button = document.getElementById('myButton') as HTMLButtonElement;
@@ -97,3 +122,4 @@ export class NewProdFiniEntreComponent implements OnInit{
   }
 
 }
+

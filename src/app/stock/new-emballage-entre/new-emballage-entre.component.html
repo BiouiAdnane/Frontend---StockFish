@@ -2,7 +2,7 @@
   <div class="card col-md-8 offset-2 mt-4">
     <div class="card-header">Nouvelle opération</div>
     <div class="card-body">
-      <form [formGroup]="newOperationEmbFormGroup" (ngSubmit)="isCustomLot! ? handleNlotPersonaliser() : handleNlotpardefeaut()" >
+      <form [formGroup]="newNbrOpEmbFormGroup" (ngSubmit)="handelGetNbrOperations()">
         <div class="mb-3">
           <label class="form-label">Numéro de Lot :</label>
           <button id="myButton" class="on" (click)="toggleButton()">N° Lot d'aujourd'hui</button>
@@ -21,13 +21,57 @@
 
 
         <div class="mb-3">
-          <label class="form-label">Quantité :</label>
-          <input type="text" formControlName="quantite" class="form-control">
+          <label class="form-label">Quantité Totale:</label>
+          <input type="text" formControlName="quantiteTotale" class="form-control">
         </div>
 
+        <div class="d-grid col-md-6 offset-3">
+          <button class="btn btn-info" (click)="validateAndTransferFormValues()">Suivant</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="isFormSubmitted">
+  <div class="card col-md-8 offset-2 mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h4>Information sur l'article</h4>
+    </div>
+    <div class="card-body">
+      <label class="form-label"> Le nom du produit est :<strong>{{infoArticle.designiation}}</strong> </label> <br>
+      <label class="form-label"> La taille du produit est :<strong> {{infoArticle.size}}</strong></label> <br>
+      <label class="form-label"> La quantité max supporté par une pallete est : <strong>{{palleteQuantite}}</strong> Pièces</label>
+    </div>
+  </div>
+</div>
+</div>
 
 
+
+
+<!--
+<form [formGroup]="newOperationEmbFormGroup" (ngSubmit)="isCustomLot ? handleNlotPersonaliser() : handleNlotpardefeaut()">
+  <div class="mb-3">
+    <div class="mb-3" *ngFor="let control of listQuat; let i = index">
+      <label class="form-label">Quantité : {{ listQuat[i] }}</label>
+      <input type="text" class="form-control" [value]="control">
+    </div>
+  </div>
+
+</form>-->
+
+ <div class="container" *ngFor="let quantite of listQuat; let i = index">
+
+  <div class="card col-md-8 offset-2 mt-4">
+    <div class="card-body">
+      <form [formGroup]="newOperationEmbFormGroup" (ngSubmit)="isCustomLot! ? handleNlotPersonaliser() : handleNlotpardefeaut()" >
         <div class="mb-3">
+          <div class="mb-3">
+            <label class="form-label">Quantité : {{ listQuat[i] }}</label>
+            <input type="text" class="form-control" [value]="listQuat[i]">
+          </div>
+
           <label class="form-label offset-1">Allé :</label>
           <label class="form-label offset-4">Rangée :</label>
           <label class="form-label offset-3">Niveau :</label>
@@ -50,6 +94,7 @@
         <div class="d-grid col-md-6 offset-3">
           <button class="btn btn-info ">Enregistrer</button></div>
       </form>
+
       <div class="alert alert-danger" *ngIf="errorMessage">Ce block est déja utilisé !!!</div>
 
     </div>

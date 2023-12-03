@@ -8,6 +8,22 @@
           <label class="form-label">Designiation article :</label>
           <input type="text" formControlName="designiation" class="form-control">
         </div>
+
+        <div class="mb-3">
+          <label class="form-label">Taille :</label>
+          <select class="form-select" formControlName="size" [(ngModel)]="selectedSize">
+          <option *ngFor="let size of getSizes()" [value]="size">{{ size }}</option>
+
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Type Article :</label>
+          <select class="form-select" formControlName="typeArticle" [(ngModel)]="selectedTypeArticle">
+            <option *ngFor="let type of getTypesArticles()" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+
         <div class="mb-3">
           <label class="form-label">Ingredient :</label>
           <select formControlName="ingredient" class="form-select">

@@ -1,6 +1,3 @@
-import {Article} from "./article";
-import {Depot} from "./depot";
-import {Utilisateur} from "./Utilisateur.model";
 
 export interface Operation{
   idOperation:number;

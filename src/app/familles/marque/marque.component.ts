@@ -64,7 +64,7 @@ export class MarqueComponent implements OnInit{
 
   handleAddMarque() {
     if (this.newMarqueFormGroup.invalid) {
-      alert("Veuillez remplir correctement tous les champs du formulaire.");
+      alert("Veuillez remplir correctement tous le champs du formulaire.");
       return;
     }
 

@@ -36,7 +36,7 @@
     <table class="table">
       <thead>
       <tr>
-        <th >ID</th><th>Nom</th><th>Qté Max</th> <th>Qté Actuelle</th><th>Nbr Max Allée</th><th>Nbr Max Rangée</th><th>Nbr Max Niveau</th><th>Supp</th><th>Mod</th>
+        <th >ID</th><th>Nom</th><th>Qté Max (par Block)</th> <th>Qté Actuelle (par Block)</th><th>Nbr Max Allée</th><th>Nbr Max Rangée</th><th>Nbr Max Niveau</th><th>Supp</th><th>Mod</th>
       </tr>
       </thead>
       <tbody>
@@ -59,7 +59,7 @@
           </button>
         </td>
         <td >
-          <button class="btn btn-info">
+          <button class="btn btn-info" (click)="handelOperationDepot(d)">
             Opérations
           </button>
         </td>

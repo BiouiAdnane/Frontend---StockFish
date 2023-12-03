@@ -64,7 +64,7 @@ export class NatureComponent implements OnInit{
 
   handleAddNature() {
     if (this.newNatureFormGroup.invalid) {
-      alert("Veuillez remplir correctement tous les champs du formulaire.");
+      alert("Veuillez remplir correctement tous le champs du formulaire.");
       return;
     }
 
