@@ -10,7 +10,7 @@ export interface Operation{
   code_Depot:number;
   matriculation:number;
   quantite:number;
-  n_Lot:String;
+  n_Lot:String
   allee:number;
   rangee:number;
   niveau:number;
