@@ -106,3 +106,8 @@ Voici quelques captures d'écran illustrant les différentes interfaces de l'app
 ## 🔗 Lien vers la Partie Backend
 
 👉 Pour une expérience complète, consulte également la partie **backend** de l'application : [Backend - StockFish](https://github.com/BiouiAdnane/Backend---StockFish).
+
+## 📝 Licence
+
+Ce projet est licencié sous la licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
