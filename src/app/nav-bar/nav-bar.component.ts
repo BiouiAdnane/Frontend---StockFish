@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
 
+  notImplemented() {
+    alert("Not Implemented Yet !!!")
+  }
 }
